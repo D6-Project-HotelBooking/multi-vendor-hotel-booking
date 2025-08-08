@@ -7,6 +7,6 @@ import com.hotelbooking.backend.model.Review;
 import java.util.List;
 
 public interface ReviewService {
-    Review postReview(ReviewRequestDto request, String customerEmail);
+	Review postReview(ReviewRequestDto request, String customerEmail);
     List<Review> getReviewsByHotelId(Long hotelId); // Add this
 }
