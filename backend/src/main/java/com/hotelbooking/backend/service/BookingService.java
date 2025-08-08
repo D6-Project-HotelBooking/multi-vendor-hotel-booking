@@ -11,4 +11,7 @@ import java.util.List;
 public interface BookingService {
     List<Booking> getAllBookings(); // Add this
     int getAvailableRooms(Long hotelId, LocalDate checkInDate, LocalDate checkOutDate); // Add this
+    Booking createBooking(BookingRequestDto request, String customerEmail);
+    List<Booking> getBookingsByCustomerEmail(String customerEmail);
+
 }
