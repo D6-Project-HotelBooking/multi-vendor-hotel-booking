@@ -1,4 +1,7 @@
 package com.hotelbooking.backend.service.impl;
+import com.hotelbooking.backend.dto.hotel.UpdateHotelRequestDto;
+import com.hotelbooking.backend.model.Facility;
+import com.hotelbooking.backend.model.Location;
 
 import com.hotelbooking.backend.dto.hotel.AddHotelRequestDto;
 import com.hotelbooking.backend.dto.hotel.UpdateHotelRequestDto;
@@ -92,5 +95,49 @@ public class HotelServiceImpl implements HotelService {
         return hotelRepository.findByHotelAdminId(manager.getId())
                 .orElseThrow(() -> new RuntimeException("No hotel assigned to this manager."));
     }
+    @Override
+    public Hotel updateHotel(Long hotelId, UpdateHotelRequestDto request) {
+        Hotel hotel = hotelRepository.findById(hotelId)
+                .orElseThrow(() -> new RuntimeException("Hotel not found with id: " + hotelId));
+
+        Location location = locationRepository.findById(request.getLocationId())
+                .orElseThrow(() -> new RuntimeException("Location not found with id: " + request.getLocationId()));
+
+        hotel.setName(request.getName());
+        hotel.setDescription(request.getDescription());
+        hotel.setPricePerDay(request.getPricePerDay());
+        hotel.setTotalRoom(request.getTotalRoom());
+        hotel.setHotelEmail(request.getHotelEmail());
+        hotel.setStreet(request.getStreet());
+        hotel.setPincode(request.getPincode());
+        hotel.setLocation(location);
+
+        return hotelRepository.save(hotel);
+    }
+
+    @Override
+    public Hotel addFacilityToHotel(Long hotelId, Long facilityId) {
+        Hotel hotel = hotelRepository.findById(hotelId)
+                .orElseThrow(() -> new RuntimeException("Hotel not found with id: " + hotelId));
+
+        Facility facility = facilityRepository.findById(facilityId)
+                .orElseThrow(() -> new RuntimeException("Facility not found with id: " + facilityId));
+
+        hotel.getFacilities().add(facility);
+        return hotelRepository.save(hotel);
+    }
+
+    @Override
+    public Hotel removeFacilityFromHotel(Long hotelId, Long facilityId) {
+        Hotel hotel = hotelRepository.findById(hotelId)
+                .orElseThrow(() -> new RuntimeException("Hotel not found with id: " + hotelId));
+
+        Facility facility = facilityRepository.findById(facilityId)
+                .orElseThrow(() -> new RuntimeException("Facility not found with id: " + facilityId));
+
+        hotel.getFacilities().remove(facility);
+        return hotelRepository.save(hotel);
+    }
+
 
 }
