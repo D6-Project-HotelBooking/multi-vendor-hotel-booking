@@ -15,4 +15,9 @@ public interface HotelService {
     List<Hotel> getHotelsByFacility(Long facilityId); // Add this
     Optional<Hotel> getHotelById(Long hotelId); // Add this
     Hotel getHotelByManagerEmail(String managerEmail); // Add this
+    
+    Hotel updateHotel(Long hotelId, UpdateHotelRequestDto request);
+    Hotel addFacilityToHotel(Long hotelId, Long facilityId);
+    Hotel removeFacilityFromHotel(Long hotelId, Long facilityId);
+
 }

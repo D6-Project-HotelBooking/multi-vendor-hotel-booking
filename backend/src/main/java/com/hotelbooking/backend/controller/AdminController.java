@@ -1,5 +1,7 @@
 // src/main/java/com/hotelbooking/backend/controller/AdminController.java
 package com.hotelbooking.backend.controller;
+import com.hotelbooking.backend.dto.hotel.UpdateHotelRequestDto;
+import jakarta.validation.Valid;
 
 import com.hotelbooking.backend.dto.auth.RegisterRequest;
 import com.hotelbooking.backend.dto.facility.FacilityDto;
@@ -113,5 +115,26 @@ public class AdminController {
         String filename = fileStorageService.save(file);
         return ResponseEntity.ok(Map.of("filename", filename));
     }
+    @PutMapping("/hotels/{hotelId}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public ResponseEntity<Hotel> updateHotel(@PathVariable Long hotelId, @Valid @RequestBody UpdateHotelRequestDto request) {
+        Hotel updatedHotel = hotelService.updateHotel(hotelId, request);
+        return ResponseEntity.ok(updatedHotel);
+    }
+
+    @PostMapping("/hotels/{hotelId}/facilities/{facilityId}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public ResponseEntity<Hotel> addFacilityToHotel(@PathVariable Long hotelId, @PathVariable Long facilityId) {
+        Hotel updatedHotel = hotelService.addFacilityToHotel(hotelId, facilityId);
+        return ResponseEntity.ok(updatedHotel);
+    }
+
+    @DeleteMapping("/hotels/{hotelId}/facilities/{facilityId}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public ResponseEntity<Hotel> removeFacilityFromHotel(@PathVariable Long hotelId, @PathVariable Long facilityId) {
+        Hotel updatedHotel = hotelService.removeFacilityFromHotel(hotelId, facilityId);
+        return ResponseEntity.ok(updatedHotel);
+    }
+
 
 }
