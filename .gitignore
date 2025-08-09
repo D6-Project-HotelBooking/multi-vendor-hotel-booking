@@ -61,3 +61,10 @@ frontend/.env.*.local
 
 # Test coverage reports
 frontend/coverage/
+
+
+# STS/Eclipse specific files
+backend/.settings/
+backend/.project
+backend/.classpath
+backend/.metadata/
