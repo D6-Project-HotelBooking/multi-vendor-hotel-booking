@@ -1,1 +1,63 @@
 /.metadata/
+# ===================================================================
+# General System / IDE Files to Ignore
+# ===================================================================
+.DS_Store
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# ===================================================================
+# Backend (Spring Boot / Maven)
+# ===================================================================
+
+# Compiled class files and build outputs
+backend/target/
+backend/pom.xml.tag
+backend/pom.xml.releaseBackup
+backend/pom.xml.versionsBackup
+backend/pom.xml.next
+backend/release.properties
+backend/dependency-reduced-pom.xml
+backend/build-log.txt
+backend/build/
+
+# Log files
+backend/*.log
+backend/logs/
+
+# Package Files
+backend/*.jar
+backend/*.war
+
+# STS/Eclipse specific files
+backend/.settings/
+backend/.project
+backend/.classpath
+
+# ===================================================================
+# Frontend (React / Vite / Node.js)
+# ===================================================================
+
+# Dependencies
+frontend/node_modules/
+
+# Build output
+frontend/dist/
+frontend/.vite/
+
+# Logs
+frontend/npm-debug.log*
+frontend/yarn-error.log*
+frontend/yarn-debug.log*
+frontend/pnpm-debug.log*
+
+# Local environment variables
+# IMPORTANT: Never commit sensitive keys or passwords
+frontend/.env.local
+frontend/.env.*.local
+
+# Test coverage reports
+frontend/coverage/
