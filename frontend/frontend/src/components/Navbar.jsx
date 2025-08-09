@@ -25,14 +25,22 @@ const Navbar = () => {
                 <div className="navbar-nav ms-auto">
                     <ul className="navbar-nav">
                         {user ? (
-                            <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Welcome, {user.sub.split('@')[0]}
-                                </a>
-                                <ul className="dropdown-menu dropdown-menu-end">
-                                    <li><button className="dropdown-item" onClick={handleLogout}>Logout</button></li>
-                                </ul>
-                            </li>
+                            <>
+                                {user.roles.includes('ROLE_ADMIN') && (
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to="/admin-dashboard">Admin Dashboard</Link>
+                                    </li>
+                                )}
+                                {/* Placeholder for future links */}
+                                <li className="nav-item dropdown">
+                                    <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Welcome, {user.sub.split('@')[0]}
+                                    </a>
+                                    <ul className="dropdown-menu dropdown-menu-end">
+                                        <li><button className="dropdown-item" onClick={handleLogout}>Logout</button></li>
+                                    </ul>
+                                </li>
+                            </>
                         ) : (
                             <>
                                 <li className="nav-item">
