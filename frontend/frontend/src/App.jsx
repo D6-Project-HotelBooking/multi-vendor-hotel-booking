@@ -1,15 +1,18 @@
-// src/App.jsx - MINIMAL VERSION
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
+import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
 
 function App() {
     return (
         <Router>
             <Routes>
                 <Route path="/" element={<Layout />}>
-                    {/* Placeholder for the homepage */}
-                    <Route index element={<div><h1>Welcome to Royal & Luxury Hotels</h1></div>} />
+                    <Route index element={<HomePage />} />
+                    <Route path="login" element={<LoginPage />} />
+                    <Route path="register" element={<RegisterPage />} />
                 </Route>
             </Routes>
         </Router>
