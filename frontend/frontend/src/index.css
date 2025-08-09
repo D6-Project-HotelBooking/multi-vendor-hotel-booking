@@ -1,0 +1,54 @@
+/* src/index.css */
+
+/* 1. Import a professional font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+
+/* 2. Define a color palette */
+:root {
+  --primary-color: #2c3e50; /* A deep, dark blue */
+  --secondary-color: #34495e; /* A slightly lighter charcoal */
+  --accent-color: #c0a062;   /* A rich, royal gold */
+  --light-gray: #f8f9fa;
+  --text-color: #333;
+  --light-text-color: #fff;
+}
+
+/* 3. Apply global styles */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif; /* Use the new font */
+  background-color: var(--light-gray);
+  color: var(--text-color);
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+/* 4. Global component enhancements */
+.card {
+  border: none; /* Remove default borders */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Add a subtle "lift" effect on hover */
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+.btn-primary {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  background-color: #a98d56; /* A slightly darker gold for hover */
+  border-color: #a98d56;
+}
