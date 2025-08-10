@@ -5,10 +5,12 @@ export const createBooking = (bookingData) => {
     return api.post("/api/customer/bookings", bookingData);
 };
 
+// Add this new function
 export const getMyBookings = () => {
     return api.get("/api/customer/bookings");
 };
 
+// Add this new function for the admin
 export const getAllBookings = () => {
     return api.get("/api/admin/bookings");
 };
