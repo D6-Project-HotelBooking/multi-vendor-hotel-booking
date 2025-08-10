@@ -1,3 +1,4 @@
+// src/components/Navbar.jsx
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
@@ -31,7 +32,16 @@ const Navbar = () => {
                                         <Link className="nav-link" to="/admin-dashboard">Admin Dashboard</Link>
                                     </li>
                                 )}
-                                {/* Placeholder for future links */}
+                                {user.roles.includes('ROLE_CUSTOMER') && (
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to="/my-bookings">My Bookings</Link>
+                                    </li>
+                                )}
+                                {user.roles.includes('ROLE_HOTEL_MANAGER') && (
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to="/manager-dashboard">Manager Dashboard</Link>
+                                    </li>
+                                )}
                                 <li className="nav-item dropdown">
                                     <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Welcome, {user.sub.split('@')[0]}
@@ -43,12 +53,8 @@ const Navbar = () => {
                             </>
                         ) : (
                             <>
-                                <li className="nav-item">
-                                    <Link className="nav-link" to="/login">Login</Link>
-                                </li>
-                                <li className="nav-item">
-                                    <Link className="nav-link" to="/register">Register</Link>
-                                </li>
+                                <li className="nav-item"><Link className="nav-link" to="/login">Login</Link></li>
+                                <li className="nav-item"><Link className="nav-link" to="/register">Register</Link></li>
                             </>
                         )}
                     </ul>
