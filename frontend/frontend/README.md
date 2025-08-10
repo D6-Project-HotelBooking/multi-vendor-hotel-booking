@@ -1,12 +1,49 @@
-# React + Vite
+# Hotel Booking System - Frontend (React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This folder contains the complete frontend application for the Hotel Booking System, built with **React** and **Vite**.
 
-Currently, two official plugins are available:
+This user interface communicates with a separate backend server to fetch and manage all data.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-----
 
-## Expanding the ESLint configuration
+## Prerequisites
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Before you begin, ensure you have the following installed on your machine:
+
+  * **Node.js and npm:** (version 18 or higher recommended) - [Download here](https://nodejs.org/)
+
+-----
+
+## 🚀 How to Run the Frontend
+
+**Important:** For the application to be fully functional, the backend server must be running on `http://localhost:8080`.
+
+1.  **Navigate to this Directory:**
+    Open your terminal and make sure you are inside this specific `frontend` directory.
+
+2.  **Install Dependencies:**
+    Run the following command to install all the necessary libraries. This only needs to be done once.
+
+    ```bash
+    npm install
+    ```
+
+3.  **Start the Development Server:**
+    Once the installation is complete, run this command to start the application:
+
+    ```bash
+    npm run dev
+    ```
+
+4.  **View the Application:**
+    The terminal will show you a local URL, which is typically `http://localhost:5173`. Open this URL in your web browser to see the live application.
+
+-----
+
+## 🛠️ Key Technologies Used
+
+  * **React:** For building the user interface.
+  * **Vite:** As the fast development server and build tool.
+  * **React Router:** For all client-side routing and navigation.
+  * **Axios:** For making HTTP requests to the backend API.
+  * **Bootstrap:** For styling and UI components.
