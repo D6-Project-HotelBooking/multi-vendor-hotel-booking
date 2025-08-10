@@ -11,3 +11,12 @@ export const getHotelsByLocation = (locationId) => {
 export const getHotelsByFacility = (facilityId) => {
     return api.get(`/api/public/hotels/by-facility/${facilityId}`);
 };
+
+export const getHotelById = (hotelId) => {
+    return api.get(`/api/public/hotels/${hotelId}`);
+};
+
+export const getManagerHotel = () => {
+    return api.get("/api/manager/hotel");
+};
+
